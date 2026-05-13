@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluquería Canina Truman - Ronda, España</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: #764ba2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item p {
+            padding: 1rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .ronda-section {
+            background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/></svg>');
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .ronda-section h2 {
+            color: white;
+        }
+
+        .ronda-section h2::after {
+            background: white;
+        }
+
+        .ronda-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            display: block;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            transition: border-color 0.3s;
+        }
+
+        .contact-card a:hover {
+            border-color: white;
+        }
+
+        footer {
+            background-color: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐾 Peluquería Canina Truman</h1>
+        <p>Cuidado profesional para tu mejor amigo</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="inicio">
+            <h2>Bienvenidos a Peluquería Canina Truman</h2>
+            <p class="intro">
+                En Peluquería Canina Truman, ubicados en el corazón de Ronda, ofrecemos servicios de peluquería
+                y estética canina de la más alta calidad. Nuestro equipo de profesionales está dedicado al cuidado
+                y bienestar de tu mascota, tratando a cada perro con el amor y la atención que se merece.
+                Utilizamos productos premium y técnicas especializadas para garantizar que tu compañero peludo
+                luzca radiante y saludable.
+            </p>
+        </section>
+
+        <section id="galeria">
+            <h2>Nuestros Clientes Peludos</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=600&h=400&fit=crop&auto=format" alt="Golden Retriever feliz">
+                    <p>Golden Retriever - Corte completo</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=600&h=400&fit=crop&auto=format" alt="Caniche arreglado">
+                    <p>Caniche - Estilo profesional</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=600&h=400&fit=crop&auto=format" alt="Husky Siberiano">
+                    <p>Husky Siberiano - Baño y cepillado</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop&auto=format" alt="Yorkshire Terrier">
+                    <p>Yorkshire Terrier - Corte de raza</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=400&fit=crop&auto=format" alt="Labrador">
+                    <p>Labrador - Aseo completo</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?w=600&h=400&fit=crop&auto=format" alt="Shih Tzu">
+                    <p>Shih Tzu - Peluquería deluxe</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>✂️ Corte y Peinado</h3>
+                    <p>Cortes personalizados según la raza y preferencias del dueño. Estilos clásicos y modernos.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🛁 Baño Completo</h3>
+                    <p>Baño con productos premium, secado profesional y perfumado. Ideal para mantener un pelaje saludable.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💅 Corte de Uñas</h3>
+                    <p>Limado y corte de uñas con técnica segura para evitar molestias a tu mascota.</p>
+                </div>
+                <div class="service-card">
+                    <h3>👂 Limpieza de Oídos</h3>
+                    <p>Limpieza profunda y cuidadosa de oídos para prevenir infecciones.</p>
+                </div>
+                <div class="service-card">
+                    <h3>✨ Tratamientos Especiales</h3>
+                    <p>Deslanado, tratamientos hidratantes, desenredado de nudos y más.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ronda-section" id="ubicacion">
+            <h2>En el Corazón de Ronda</h2>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
+                Estamos orgullosos de servir a la comunidad de Ronda, una de las ciudades más hermosas de Andalucía.
+                Nuestro salón está ubicado en un lugar accesible y acogedor, donde tu mascota se sentirá como en casa.
+            </p>
+            <img class="ronda-image" src="Ronda Spain.png" alt="Vista aérea de Ronda, España">
+        </div>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📍 Dirección</h3>
+                    <p>Calle Nueva, 25<br>29400 Ronda, Málaga<br>España</p>
+                </div>
+                <div class="contact-card">
+                    <h3>📞 Teléfono</h3>
+                    <p><a href="tel:+34952871234">+34 952 87 12 34</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>✉️ Email</h3>
+                    <p><a href="mailto:info@peluqueriatruman.es">info@peluqueriatruman.es</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>🕒 Horario</h3>
+                    <p>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00<br>Domingos: Cerrado</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Peluquería Canina Truman - Ronda, España. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Cuidando a tu mejor amigo con amor y profesionalidad</p>
+    </footer>
+</body>
+</html>
