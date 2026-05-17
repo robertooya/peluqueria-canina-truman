@@ -250,11 +250,18 @@
             opacity: 0.9;
         }
 
-        .hero-image-section {
+        .hero-section {
             width: 100%;
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 2rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            flex: 0 0 40%;
         }
 
         .hero-image {
@@ -263,6 +270,36 @@
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
             display: block;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            text-align: left;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .hero-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .hero-content p {
+            text-align: left;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
         }
 
         @media (max-width: 768px) {
@@ -282,8 +319,27 @@
                 margin: 0.5rem;
             }
 
-            .hero-image-section {
+            .hero-section {
+                flex-direction: column;
                 margin: 2rem auto;
+                gap: 2rem;
+            }
+
+            .hero-image-wrapper {
+                flex: 0 0 100%;
+            }
+
+            .hero-content h2 {
+                text-align: center;
+            }
+
+            .hero-content h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .hero-content p {
+                text-align: center;
             }
         }
     </style>
@@ -299,21 +355,23 @@
         </ul>
     </nav>
 
-    <div class="hero-image-section">
-        <img src="Truman.jpeg" alt="Truman - Peluquería Canina" class="hero-image">
-    </div>
-
-    <div class="container">
-        <section id="inicio">
+    <div id="inicio" class="hero-section">
+        <div class="hero-image-wrapper">
+            <img src="Truman.jpeg" alt="Truman - Peluquería Canina" class="hero-image">
+        </div>
+        <div class="hero-content">
             <h2>Bienvenidos a Peluquería Canina El Pequeño Truman</h2>
-            <p class="intro">
+            <p>
                 En Peluquería Canina Truman, ubicados en el corazón de Ronda, ofrecemos servicios de peluquería
                 y estética canina de la más alta calidad. Nuestro equipo de profesionales está dedicado al cuidado
                 y bienestar de tu mascota, tratando a cada perro con el amor y la atención que se merece.
                 Utilizamos productos premium y técnicas especializadas para garantizar que tu compañero peludo
                 luzca radiante y saludable.
             </p>
-        </section>
+        </div>
+    </div>
+
+    <div class="container">
 
         <section id="galeria">
             <h2>Nuestros Clientes Peludos</h2>
