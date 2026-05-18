@@ -42,6 +42,39 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            position: relative;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .language-switcher button {
+            background: none;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 0.3rem 0.5rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            opacity: 0.6;
+        }
+
+        .language-switcher button:hover {
+            opacity: 1;
+            border-color: #667eea;
+            transform: scale(1.1);
+        }
+
+        .language-switcher button.active {
+            opacity: 1;
+            border-color: #667eea;
+            background-color: #f0f4ff;
         }
 
         nav ul {
@@ -319,6 +352,15 @@
                 margin: 0.5rem;
             }
 
+            .language-switcher {
+                right: 0.5rem;
+            }
+
+            .language-switcher button {
+                font-size: 1.2rem;
+                padding: 0.2rem 0.4rem;
+            }
+
             .hero-section {
                 flex-direction: column;
                 margin: 2rem auto;
@@ -346,12 +388,16 @@
 </head>
 <body>
     <nav>
+        <div class="language-switcher">
+            <button onclick="switchLanguage('es')" id="lang-es" class="active" title="Español">🇪🇸</button>
+            <button onclick="switchLanguage('en')" id="lang-en" title="English">🇬🇧</button>
+        </div>
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#ubicacion">Ubicación</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#inicio" data-lang="nav-inicio">Inicio</a></li>
+            <li><a href="#servicios" data-lang="nav-servicios">Servicios</a></li>
+            <li><a href="#galeria" data-lang="nav-galeria">Galería</a></li>
+            <li><a href="#ubicacion" data-lang="nav-ubicacion">Ubicación</a></li>
+            <li><a href="#contacto" data-lang="nav-contacto">Contacto</a></li>
         </ul>
     </nav>
 
@@ -360,8 +406,8 @@
             <img src="Truman.jpeg" alt="Truman - Peluquería Canina" class="hero-image">
         </div>
         <div class="hero-content">
-            <h2>Bienvenidos a Peluquería Canina El Pequeño Truman</h2>
-            <p>
+            <h2 data-lang="hero-title">Bienvenidos a Peluquería Canina El Pequeño Truman</h2>
+            <p data-lang="hero-text">
                 En Peluquería Canina Truman, ubicados en el corazón de Ronda, ofrecemos servicios de peluquería
                 y estética canina de la más alta calidad. Nuestro equipo de profesionales está dedicado al cuidado
                 y bienestar de tu mascota, tratando a cada perro con el amor y la atención que se merece.
@@ -374,56 +420,56 @@
     <div class="container">
 
         <section id="galeria">
-            <h2>Nuestros Clientes Peludos</h2>
+            <h2 data-lang="gallery-title">Nuestros Clientes Peludos</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=600&h=400&fit=crop&auto=format" alt="Golden Retriever feliz">
-                    <p>Golden Retriever - Corte completo</p>
+                    <p data-lang="gallery-golden">Golden Retriever - Corte completo</p>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=600&h=400&fit=crop&auto=format" alt="Caniche arreglado">
-                    <p>Caniche - Estilo profesional</p>
+                    <p data-lang="gallery-poodle">Caniche - Estilo profesional</p>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=600&h=400&fit=crop&auto=format" alt="Husky Siberiano">
-                    <p>Husky Siberiano - Baño y cepillado</p>
+                    <p data-lang="gallery-husky">Husky Siberiano - Baño y cepillado</p>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop&auto=format" alt="Yorkshire Terrier">
-                    <p>Yorkshire Terrier - Corte de raza</p>
+                    <p data-lang="gallery-yorkshire">Yorkshire Terrier - Corte de raza</p>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=400&fit=crop&auto=format" alt="Labrador">
-                    <p>Labrador - Aseo completo</p>
+                    <p data-lang="gallery-labrador">Labrador - Aseo completo</p>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?w=600&h=400&fit=crop&auto=format" alt="Shih Tzu">
-                    <p>Shih Tzu - Peluquería deluxe</p>
+                    <p data-lang="gallery-shihtzu">Shih Tzu - Peluquería deluxe</p>
                 </div>
             </div>
         </section>
 
         <section id="servicios">
-            <h2>Nuestros Servicios</h2>
+            <h2 data-lang="services-title">Nuestros Servicios</h2>
             <div class="services">
                 <div class="service-card">
-                    <h3>🛁 Baño Completo</h3>
-                    <p>Baño con productos premium, secado profesional y perfumado. Ideal para mantener un pelaje saludable. Todo baño incluye gratis la limpieza de ojos y oídos, rasurado de zonas higiénicas y almohadillas, corte de uñas, y vaciado de glándula si fuera necesario.</p>
+                    <h3 data-lang="service-bath-title">🛁 Baño Completo</h3>
+                    <p data-lang="service-bath-text">Baño con productos premium, secado profesional y perfumado. Ideal para mantener un pelaje saludable. Todo baño incluye gratis la limpieza de ojos y oídos, rasurado de zonas higiénicas y almohadillas, corte de uñas, y vaciado de glándula si fuera necesario.</p>
                 </div>
                 <div class="service-card">
-                    <h3>✂️ Corte y Peinado</h3>
-                    <p>Cortes personalizados según la raza y preferencias del dueño. Estilos clásicos y modernos.</p>
+                    <h3 data-lang="service-cut-title">✂️ Corte y Peinado</h3>
+                    <p data-lang="service-cut-text">Cortes personalizados según la raza y preferencias del dueño. Estilos clásicos y modernos.</p>
                 </div>
                 <div class="service-card">
-                    <h3>✨ Tratamientos Especiales</h3>
-                    <p>Deslanado, desenredado de nudos, stripping, tratamientos hidratantes, y más...</p>
+                    <h3 data-lang="service-special-title">✨ Tratamientos Especiales</h3>
+                    <p data-lang="service-special-text">Deslanado, desenredado de nudos, stripping, tratamientos hidratantes, y más...</p>
                 </div>
             </div>
         </section>
 
         <div class="ronda-section" id="ubicacion">
-            <h2>En el Corazón de Ronda</h2>
-            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
+            <h2 data-lang="location-title">En el Corazón de Ronda</h2>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;" data-lang="location-text">
                 Estamos orgullosos de servir a la comunidad de Ronda, una de las ciudades más hermosas de Andalucía.
                 Nuestro salón está ubicado en un lugar accesible y acogedor, frente a la Alameda del Tajo, donde tu mascota se sentirá como en casa.
             </p>
@@ -431,14 +477,14 @@
         </div>
 
         <section id="contacto">
-            <h2>Contáctanos</h2>
+            <h2 data-lang="contact-title">Contáctanos</h2>
             <div class="contact-grid">
                 <div class="contact-card">
                     <h3>📍 Dirección</h3>
                     <p>C/ Mariano Soubirón, 5, Local 1<br>29400 Ronda, Málaga<br>España</p>
                 </div>
                 <div class="contact-card">
-                    <h3>📞 Teléfono</h3>
+                    <h3 data-lang="contact-phone">📞 Teléfono</h3>
                     <p><a href="https://wa.me/34682410143" target="_blank">+34 682 410 143</a></p>
                 </div>
                 <div class="contact-card">
@@ -446,16 +492,116 @@
                     <p><a href="mailto:peluqueriatruman@gmail.com">peluqueriatruman@gmail.com</a></p>
                 </div>
                 <div class="contact-card">
-                    <h3>🕒 Horario</h3>
-                    <p>Lunes - Viernes (Verano): 9:00h - 16:00h<br>Sábados y Domingos: Cerrado</p>
+                    <h3 data-lang="contact-hours">🕒 Horario</h3>
+                    <p data-lang="contact-hours-text">Lunes - Viernes (Verano): 9:00h - 16:00h<br>Sábados y Domingos: Cerrado</p>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Peluquería Canina El Pequeño Truman - Ronda, España. Todos los derechos reservados.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Cuidando a tu mejor amigo con amor y profesionalidad</p>
+        <p data-lang="footer-copyright">&copy; 2026 Peluquería Canina El Pequeño Truman - Ronda, España. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-lang="footer-tagline">Cuidando a tu mejor amigo con amor y profesionalidad</p>
     </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'nav-inicio': 'Inicio',
+                'nav-servicios': 'Servicios',
+                'nav-galeria': 'Galería',
+                'nav-ubicacion': 'Ubicación',
+                'nav-contacto': 'Contacto',
+                'hero-title': 'Bienvenidos a Peluquería Canina El Pequeño Truman',
+                'hero-text': 'En Peluquería Canina Truman, ubicados en el corazón de Ronda, ofrecemos servicios de peluquería y estética canina de la más alta calidad. Nuestro equipo de profesionales está dedicado al cuidado y bienestar de tu mascota, tratando a cada perro con el amor y la atención que se merece. Utilizamos productos premium y técnicas especializadas para garantizar que tu compañero peludo luzca radiante y saludable.',
+                'gallery-title': 'Nuestros Clientes Peludos',
+                'gallery-golden': 'Golden Retriever - Corte completo',
+                'gallery-poodle': 'Caniche - Estilo profesional',
+                'gallery-husky': 'Husky Siberiano - Baño y cepillado',
+                'gallery-yorkshire': 'Yorkshire Terrier - Corte de raza',
+                'gallery-labrador': 'Labrador - Aseo completo',
+                'gallery-shihtzu': 'Shih Tzu - Peluquería deluxe',
+                'services-title': 'Nuestros Servicios',
+                'service-bath-title': '🛁 Baño Completo',
+                'service-bath-text': 'Baño con productos premium, secado profesional y perfumado. Ideal para mantener un pelaje saludable. Todo baño incluye gratis la limpieza de ojos y oídos, rasurado de zonas higiénicas y almohadillas, corte de uñas, y vaciado de glándula si fuera necesario.',
+                'service-cut-title': '✂️ Corte y Peinado',
+                'service-cut-text': 'Cortes personalizados según la raza y preferencias del dueño. Estilos clásicos y modernos.',
+                'service-special-title': '✨ Tratamientos Especiales',
+                'service-special-text': 'Deslanado, desenredado de nudos, stripping, tratamientos hidratantes, y más...',
+                'location-title': 'En el Corazón de Ronda',
+                'location-text': 'Estamos orgullosos de servir a la comunidad de Ronda, una de las ciudades más hermosas de Andalucía. Nuestro salón está ubicado en un lugar accesible y acogedor, frente a la Alameda del Tajo, donde tu mascota se sentirá como en casa.',
+                'contact-title': 'Contáctanos',
+                'contact-phone': '📞 Teléfono',
+                'contact-hours': '🕒 Horario',
+                'contact-hours-text': 'Lunes - Viernes (Verano): 9:00h - 16:00h<br>Sábados y Domingos: Cerrado',
+                'footer-copyright': '&copy; 2026 Peluquería Canina El Pequeño Truman - Ronda, España. Todos los derechos reservados.',
+                'footer-tagline': 'Cuidando a tu mejor amigo con amor y profesionalidad'
+            },
+            'en': {
+                'nav-inicio': 'Home',
+                'nav-servicios': 'Services',
+                'nav-galeria': 'Gallery',
+                'nav-ubicacion': 'Location',
+                'nav-contacto': 'Contact',
+                'hero-title': 'Welcome to El Pequeño Truman Dog Grooming',
+                'hero-text': 'At El Pequeño Truman Dog Grooming, located in the heart of Ronda, we offer the highest quality dog grooming and aesthetics services. Our team of professionals is dedicated to the care and well-being of your pet, treating each dog with the love and attention they deserve. We use premium products and specialized techniques to ensure your furry companion looks radiant and healthy.',
+                'gallery-title': 'Our Furry Clients',
+                'gallery-golden': 'Golden Retriever - Full cut',
+                'gallery-poodle': 'Poodle - Professional style',
+                'gallery-husky': 'Siberian Husky - Bath and brushing',
+                'gallery-yorkshire': 'Yorkshire Terrier - Breed cut',
+                'gallery-labrador': 'Labrador - Full grooming',
+                'gallery-shihtzu': 'Shih Tzu - Deluxe grooming',
+                'services-title': 'Our Services',
+                'service-bath-title': '🛁 Complete Bath',
+                'service-bath-text': 'Bath with premium products, professional drying and perfuming. Ideal for maintaining a healthy coat. Every bath includes free eye and ear cleaning, hygienic area and paw pad shaving, nail trimming, and gland expression if needed.',
+                'service-cut-title': '✂️ Cut and Styling',
+                'service-cut-text': 'Personalized cuts according to breed and owner preferences. Classic and modern styles.',
+                'service-special-title': '✨ Special Treatments',
+                'service-special-text': 'De-shedding, detangling, stripping, moisturizing treatments, and more...',
+                'location-title': 'In the Heart of Ronda',
+                'location-text': 'We are proud to serve the community of Ronda, one of the most beautiful cities in Andalusia. Our salon is located in an accessible and welcoming place, in front of Alameda del Tajo, where your pet will feel at home.',
+                'contact-title': 'Contact Us',
+                'contact-phone': '📞 Phone',
+                'contact-hours': '🕒 Hours',
+                'contact-hours-text': 'Monday - Friday (Summer): 9:00h - 16:00h<br>Saturday and Sunday: Closed',
+                'footer-copyright': '&copy; 2026 El Pequeño Truman Dog Grooming - Ronda, España. All rights reserved.',
+                'footer-tagline': 'Caring for your best friend with love and professionalism'
+            }
+        };
+
+        let currentLang = 'es';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // Update active button
+            document.getElementById('lang-es').classList.remove('active');
+            document.getElementById('lang-en').classList.remove('active');
+            document.getElementById('lang-' + lang).classList.add('active');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && savedLang !== 'es') {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
 </body>
 </html>
