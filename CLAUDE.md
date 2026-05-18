@@ -36,9 +36,16 @@ The entire website is contained in `index.html`:
 
 ### Language and Tone
 
-- **Language:** Spanish (Spain) - "Español de España"
+- **Language:** Spanish (Spain) - "Español de España" AND English
 - **Tone:** Professional, elegant, warm, and welcoming
-- **Target Audience:** Pet owners in Ronda and surrounding areas
+- **Target Audience:** Pet owners in Ronda and surrounding areas (local and international tourists)
+
+**CRITICAL: Bilingual Requirement**
+- The website supports BOTH Spanish and English versions
+- ANY changes to website content MUST be applied to BOTH language versions
+- Language switcher in navigation allows users to toggle between 🇪🇸 Spanish and 🇬🇧 English
+- Maintain content parity: updates to services, hours, descriptions, etc. must be translated
+- Keep the same structure and layout for both language versions
 
 ### Visual Style
 
@@ -135,17 +142,21 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 
 1. **Content Updates:**
    - Services, hours, contact info → Edit directly in `index.html`
-   - Always maintain Spanish language and professional tone
+   - **CRITICAL:** Apply ALL content changes to BOTH Spanish AND English sections
+   - Always maintain professional tone in both languages
+   - Verify translations are accurate and culturally appropriate
 
 2. **Design Updates:**
    - Preserve the purple gradient theme unless requested otherwise
    - Maintain responsive design for all screen sizes
    - Keep hover effects and transitions for professional feel
+   - Design changes apply globally (shared across both language versions)
 
 3. **Image Updates:**
    - Replace Unsplash URLs if images break
    - Optimize local images if file size becomes an issue
    - Ensure new images match the professional aesthetic
+   - Images are shared across both languages
 
 ### Testing
 
@@ -158,16 +169,22 @@ Before pushing changes:
 
 ### Common Tasks
 
+**IMPORTANT:** All content changes must be made in BOTH Spanish and English sections of the HTML.
+
 **Update contact hours:**
-- Edit the "Horario" section in the contact cards (around line 385)
+- Edit the "Horario" section in the contact cards for Spanish version
+- Edit the "Hours" section in the contact cards for English version
 
 **Add a new service:**
-- Duplicate a `.service-card` div
-- Update the emoji, title (h3), and description (p)
+- Duplicate a `.service-card` div in BOTH language sections
+- Update the emoji, title (h3), and description (p) in Spanish
+- Update the emoji, title (h3), and description (p) in English
+- Ensure service offerings match across both languages
 
 **Change images:**
 - Update the `src` attribute in the gallery `<img>` tags
 - Ensure new URLs are valid and images are accessible
+- Images are shared across both languages (no translation needed)
 
 **Update Ronda image:**
 - Replace `Ronda Spain.png` file in the project directory
